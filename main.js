@@ -16,11 +16,34 @@ for (let i = 0; i < cakesInfo.length; i++) {
 const dropIcon = document.querySelector(".dropIcon");
 const drop = document.querySelector(".drop");
 
-let dis = ["block", "none"];
-dropIcon.addEventListener("click", () => {
-  dis = dis.reverse();
-  drop.style.display = dis[0];
+let isDropOpen = false;
+dropIcon.addEventListener("click", (e) => {
+  e.preventDefault();
+  e.stopPropagation();
+  isDropOpen = !isDropOpen;
+  drop.style.display = isDropOpen ? "block" : "none";
 });
+
+// Close menu when clicking a link
+const dropLinks = drop.querySelectorAll("a");
+dropLinks.forEach(link => {
+  link.addEventListener("click", () => {
+    isDropOpen = false;
+    drop.style.display = "none";
+  });
+});
+
+// Mobile WhatsApp button
+const mobileWhatsAppBtn = document.getElementById("mobileWhatsappBtn");
+if(mobileWhatsAppBtn) {
+  mobileWhatsAppBtn.addEventListener("click", (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    modal.style.display = "block";
+    isDropOpen = false;
+    drop.style.display = "none";
+  });
+}
 
 // WhatsApp Modal Functionality
 const modal = document.getElementById("whatsappModal");
@@ -30,26 +53,32 @@ const sendBtn = document.getElementById("sendWhatsapp");
 const messageInput = document.getElementById("whatsappMessage");
 
 // Open modal
-openModalBtn.onclick = function() {
+openModalBtn.addEventListener("click", (e) => {
+  e.preventDefault();
+  e.stopPropagation();
   modal.style.display = "block";
-}
+});
 
 // Close modal
-closeBtn.onclick = function() {
+closeBtn.addEventListener("click", (e) => {
+  e.preventDefault();
+  e.stopPropagation();
   modal.style.display = "none";
   messageInput.value = ""; // Clear message
-}
+});
 
 // Close modal when clicking outside
-window.onclick = function(event) {
-  if (event.target == modal) {
+document.addEventListener("click", (event) => {
+  if (event.target === modal) {
     modal.style.display = "none";
     messageInput.value = ""; // Clear message
   }
-}
+});
 
 // Send WhatsApp message
-sendBtn.onclick = function() {
+sendBtn.addEventListener("click", (e) => {
+  e.preventDefault();
+  e.stopPropagation();
   const message = messageInput.value.trim();
   if (message === "") {
     alert("Please enter a message before sending.");
@@ -68,7 +97,7 @@ sendBtn.onclick = function() {
   // Close modal and clear input
   modal.style.display = "none";
   messageInput.value = "";
-}
+});
 
 // Allow sending with Enter key
 messageInput.addEventListener('keypress', function(event) {

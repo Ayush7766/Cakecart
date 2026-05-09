@@ -682,6 +682,31 @@ body {
   height: 1rem;
 }
 
+/* Mobile WhatsApp Button */
+.mobile-whatsapp-link {
+  background: none;
+  border: none;
+  padding: 1rem;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  color: var(--mainPink);
+  font-size: 1.25rem;
+  font-family: inherit;
+  text-align: left;
+}
+
+.mobile-whatsapp-link img {
+  margin-right: 0.5rem;
+  height: 1.5rem;
+  width: 1.5rem;
+}
+
+.mobile-whatsapp-link:active {
+  background-color: var(--yellowTrans);
+}
+
 /* Modal Styles */
 .modal {
   display: none;
