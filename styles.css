@@ -10,7 +10,7 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  font-family: "Kaushan Script", cursive;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 }
 body {
   height: 100vh;
@@ -682,6 +682,33 @@ body {
   height: 1rem;
 }
 
+.whatsapp-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.35rem 0.75rem;
+  border-radius: 0.6rem;
+  background-color: rgba(239, 121, 152, 0.08);
+}
+
+.whatsapp-hint {
+  color: var(--mainPink);
+  font-size: 0.95rem;
+  font-weight: 700;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin: 0;
+}
+
+.whatsapp-btn:hover {
+  background-color: var(--mainWhite);
+  color: var(--mainPink);
+  border: 1px solid var(--mainPink);
+  transform: translateY(-1px);
+}
+
 /* Mobile WhatsApp Button */
 .mobile-whatsapp-link {
   background: none;
@@ -695,6 +722,21 @@ body {
   font-size: 1.25rem;
   font-family: inherit;
   text-align: left;
+}
+
+.mobile-whatsapp-hint {
+  margin-top: 0.25rem;
+  color: var(--mainPink);
+  font-size: 1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+@media (max-width: 768px) {
+  .mobile-whatsapp-hint {
+    display: block;
+  }
 }
 
 .mobile-whatsapp-link img {
@@ -723,11 +765,12 @@ body {
   background-color: var(--mainWhite);
   margin: 15% auto;
   padding: 2rem;
-  border: 1px solid #888;
-  border-radius: 0.5rem;
+  border: 2px solid var(--mainPink);
+  border-radius: 0.85rem;
   width: 90%;
   max-width: 500px;
   position: relative;
+  box-shadow: 0 20px 50px rgba(239, 121, 152, 0.18);
 }
 
 .close {
@@ -748,12 +791,21 @@ body {
   color: var(--mainPink);
   margin-bottom: 1rem;
   text-align: center;
+  text-shadow: 1px 1px 3px rgba(239, 121, 152, 0.25);
 }
 
 .modal-content p {
   text-align: center;
   margin-bottom: 1.5rem;
   color: #666;
+}
+
+.modal-content .drop-message {
+  color: var(--mainPink);
+  margin-top: -0.75rem;
+  margin-bottom: 1.5rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
 }
 
 #whatsappMessage {
