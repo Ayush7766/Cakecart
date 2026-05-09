@@ -1,15 +1,17 @@
 
 const line = document.querySelector(".line1");
-for (let i = 0; i < cakesInfo.length; i++) {
-  line.innerHTML += `<div class="post">
-  <div class="pimage">
-    <img src="${cakesInfo[i].img}" />
-    <p class="mcart">
-      <img src="${cakesInfo[i].cart}" alt="" />
-    </p>
-  </div>
-  <div class="pp">${cakesInfo[i].name} <span>${cakesInfo[i].category}</span></div>
-</div>`;
+if (line && typeof cakesInfo !== "undefined" && Array.isArray(cakesInfo)) {
+  for (let i = 0; i < cakesInfo.length; i++) {
+    line.innerHTML += `<div class="post">
+    <div class="pimage">
+      <img src="${cakesInfo[i].img}" />
+      <p class="mcart">
+        <img src="${cakesInfo[i].cart}" alt="" />
+      </p>
+    </div>
+    <div class="pp">${cakesInfo[i].name} <span>${cakesInfo[i].category}</span></div>
+  </div>`;
+  }
 }
 
 //Selector
@@ -53,19 +55,23 @@ const sendBtn = document.getElementById("sendWhatsapp");
 const messageInput = document.getElementById("whatsappMessage");
 
 // Open modal
-openModalBtn.addEventListener("click", (e) => {
-  e.preventDefault();
-  e.stopPropagation();
-  modal.style.display = "block";
-});
+if (openModalBtn) {
+  openModalBtn.addEventListener("click", (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    modal.style.display = "block";
+  });
+}
 
 // Close modal
-closeBtn.addEventListener("click", (e) => {
-  e.preventDefault();
-  e.stopPropagation();
-  modal.style.display = "none";
-  messageInput.value = ""; // Clear message
-});
+if (closeBtn) {
+  closeBtn.addEventListener("click", (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    modal.style.display = "none";
+    messageInput.value = ""; // Clear message
+  });
+}
 
 // Close modal when clicking outside
 document.addEventListener("click", (event) => {

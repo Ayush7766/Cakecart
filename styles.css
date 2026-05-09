@@ -688,7 +688,7 @@ body {
   border: none;
   padding: 1rem;
   width: 100%;
-  display: flex;
+  display: none;
   align-items: center;
   cursor: pointer;
   color: var(--mainPink);
@@ -837,9 +837,13 @@ body {
 /* Mobile Responsive */
 @media (max-width: 768px) {
   .whatsapp-btn {
-    margin-left: 0.5rem;
+    display: none;
   }
-  
+
+  .mobile-whatsapp-link {
+    display: flex;
+  }
+
   .whatsapp-btn span {
     display: none;
   }
